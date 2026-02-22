@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class  solution{
+
+    // Iterative Method
+    public static long factorialIterative(int n) {
+        if (n < 0)
+            return -1;   // Invalid input
+
+        long fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+
+        return fact;
+    }
+
+    // Recursive Method
+    public static long factorialRecursive(int n) {
+        if (n < 0)
+            return -1;   // Invalid input
+
+        if (n == 0 || n == 1)
+            return 1;
+
+        return n * factorialRecursive(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        long result1 = factorialIterative(num);
+        long result2 = factorialRecursive(num);
+
+        if (result1 == -1)
+            System.out.println("Factorial not defined for negative numbers.");
+        else {
+            System.out.println("Factorial using Iteration: " + result1);
+            System.out.println("Factorial using Recursion: " + result2);
+        }
+
+        sc.close();
+    }
+}
